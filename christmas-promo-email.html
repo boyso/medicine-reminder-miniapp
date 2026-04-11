@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas & New Year Special - 50% Off</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Source Han Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* 邮件容器 */
+        .email-container {
+            width: 375px;
+            min-height: 667px;
+            background: #FFFFFF;
+            border: 1px solid #D8D8D8;
+            position: relative;
+        }
+
+        /* 内容区域 */
+        .email-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 15px;
+        }
+
+        /* 顶部横幅 */
+        .top-banner {
+            background: #FFF7F1;
+            padding: 5px 4px;
+            border-radius: 4px;
+        }
+
+        .banner-text {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #3D3D3D;
+            white-space: nowrap;
+        }
+
+        /* 主标题 */
+        .main-title {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: #000000;
+            text-align: center;
+            text-transform: uppercase;
+            line-height: 24px;
+            margin-top: 12px;
+        }
+
+        /* 副标题区域 */
+        .subtitle-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-top: 8px;
+        }
+
+        .subtitle-highlight {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #3E3E3E;
+        }
+
+        .subtitle-normal {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #3D3D3D;
+        }
+
+        /* 折扣标签 */
+        .discount-badge {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #3D3D3D;
+            margin-top: 5px;
+        }
+
+        /* 优惠码区域 */
+        .promo-code-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            margin-top: 8px;
+        }
+
+        .promo-label {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #BB4848;
+        }
+
+        .promo-code-box {
+            background: #FFF7F1;
+            border: 1px dashed #EE4F4F;
+            padding: 15px 20px;
+            border-radius: 4px;
+        }
+
+        .promo-code {
+            font-family: "Abhaya Libre ExtraBold", "Source Han Sans", serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #F83C2E;
+            letter-spacing: 1px;
+        }
+
+        /* 产品优势列表 */
+        .benefits-list {
+            margin-top: 15px;
+            text-align: left;
+            width: 280px;
+        }
+
+        .benefit-item {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 24px;
+            color: #3D3D3D;
+        }
+
+        .benefit-item .highlight {
+            color: #1014FC;
+            text-decoration: none;
+        }
+
+        /* 紧急提示 */
+        .urgent-notice {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #3D3D3D;
+            margin-top: 15px;
+        }
+
+        /* 页脚 */
+        .footer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 40px;
+            width: 320px;
+        }
+
+        .company-name {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            color: #3D3D3D;
+        }
+
+        .founder-info {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #3D3D3D;
+            line-height: 1.6;
+        }
+
+        .founder-info strong {
+            font-weight: 700;
+        }
+
+        .support-text {
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #909399;
+            line-height: 1.6;
+        }
+
+        .support-link {
+            color: #909399;
+            text-decoration: underline;
+            font-weight: 400;
+        }
+
+        /* 复制按钮 */
+        .copy-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #F83C2E;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: "Source Han Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #EE4F4F;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Toast提示 */
+        .toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            z-index: 2000;
+            display: none;
+        }
+
+        .toast.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-content">
+            <!-- 顶部横幅 -->
+            <div class="top-banner">
+                <span class="banner-text">🎄 Christmas & New Year Special - 50% Off 🎄✨🎁</span>
+            </div>
+
+            <!-- 主标题 -->
+            <h1 class="main-title">Christmas & New Year Special</h1>
+
+            <!-- 副标题区域 -->
+            <div class="subtitle-section">
+                <span class="subtitle-highlight">Limited Time Offer - Don't Miss Out!</span>
+                <span class="subtitle-normal">This holiday season, we have a special gift for you! 🎁</span>
+            </div>
+
+            <!-- 折扣标签 -->
+            <div class="discount-badge">50% OFF</div>
+
+            <!-- 优惠码区域 -->
+            <div class="promo-code-section">
+                <span class="promo-label">Use this code at checkout:</span>
+                <div class="promo-code-box">
+                    <span class="promo-code" id="promo-code">MerryChristmas50%</span>
+                </div>
+                <button class="copy-btn" onclick="copyPromoCode()">Copy Code</button>
+            </div>
+
+            <!-- 产品优势列表 -->
+            <div class="benefits-list">
+                <div class="benefit-item">🎁 50% OFF submitting your AI Tool product</div>
+                <div class="benefit-item">🚀 Fast review — approval within 2–6 hours</div>
+                <div class="benefit-item">🎯 Gain a Dofollow backlink with Ahrefs DR = <span class="highlight">65</span></div>
+            </div>
+
+            <!-- 紧急提示 -->
+            <div class="urgent-notice">🎉 Limited time offer - act fast!</div>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                <div class="company-name">All in AI Tools</div>
+                <div class="founder-info">
+                    <strong>Tony Stark</strong><br>
+                    Founder
+                </div>
+                <div class="support-text">
+                    If you have any questions, please don't hesitate to contact <a href="mailto:support@allinai.tools" class="support-link">support@allinai.tools</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast提示 -->
+    <div class="toast" id="toast">Copied to clipboard!</div>
+
+    <script>
+        function copyPromoCode() {
+            const promoCode = document.getElementById('promo-code').textContent;
+            
+            // 创建临时输入框
+            const tempInput = document.createElement('input');
+            tempInput.value = promoCode;
+            document.body.appendChild(tempInput);
+            
+            // 选择并复制
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            
+            // 移除临时输入框
+            document.body.removeChild(tempInput);
+            
+            // 显示提示
+            showToast('Copied to clipboard!');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
